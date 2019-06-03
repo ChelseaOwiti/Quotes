@@ -51,5 +51,4 @@ chelseaowiti@gmail.com
 
 ### License
 
-*MIT License*
-Copyright (c) {2019} **Chelsea Owiti**
+* [MIT LICENSE](LICENSE)

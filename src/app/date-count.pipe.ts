@@ -1,72 +1,24 @@
-import { Pipe,  ChangeDetectorRef } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'dateCount',
-  pure: false
-  
+  name: 'dateCount'
 })
+export class DateCountPipe implements PipeTransform {
 
-export class DateCountPipe extends AsyncPipe{
-  value:Date;
-    timer:Observable<string>;
+  transform(value: any): number {
+    let today:Date = new Date(); //get current date and time
+    let todayWithNoTime:any = new Date(today.getFullYear(),today.getMonth(),today.getDate())
+    var dateDifference =Math.abs(value-todayWithNoTime )// returns value in milliseconds
+    const secondsInADay= 86400; //60 seconds*60 minutes in an hour *24 hours
 
-    constructor(ref:ChangeDetectorRef)
-    {
-        super(ref);
+    var dateDifferenceSeconds=dateDifference*0.001; //converts to seconds
+
+    var dateCounter = dateDifferenceSeconds/secondsInADay;
+
+    if (dateCounter >= 1 && value > todayWithNoTime){
+        return dateCounter;
+    }else{
+        return 0;
     }
-
-    transform(obj:any, args?:any[]):any
-    {
-        if (obj instanceof Date)
-        {
-            this.value = obj;
-
-            if(!this.timer)
-            {
-                this.timer = this.getObservable();
-            }
-
-            return super.transform(this.timer, args);
-        }
-
-        return super.transform(obj, args);
-    }
-
-    private getObservable()
-    {
-        return Observable.interval(1000).startWith(0).map(()=>
-        {
-            var result:string;
-            // current time
-            let now = new Date().getTime();
-
-            // time since message was sent in seconds
-            let delta = (now - this.value.getTime()) / 1000;
-
-            // format string
-            if (delta < 10)
-            {
-                result = 'jetzt';
-            }
-            else if (delta < 60)
-            { // sent in last minute
-                result = 'vor ' + Math.floor(delta) + ' Sekunden';
-            }
-            else if (delta < 3600)
-            { // sent in last hour
-                result = 'vor ' + Math.floor(delta / 60) + ' Minuten';
-            }
-            else if (delta < 86400)
-            { // sent on last day
-                result = 'vor ' + Math.floor(delta / 3600) + ' Stunden';
-            }
-            else
-            { // sent more than one day ago
-                result = 'vor ' + Math.floor(delta / 86400) + ' Tagen';
-            }
-            return result;
-        });
-    };
+  }
 }
