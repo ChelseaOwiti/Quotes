@@ -21,6 +21,12 @@ export class QuoteComponent implements OnInit {
     this.quotes.push(quote)
 
   }
+  upvote(i){
+    this.quotes[i].upvotes ++;
+  }
+  downvote(i){
+    this.quotes[i].downvotes ++;
+  }
 
   constructor() { }
 
