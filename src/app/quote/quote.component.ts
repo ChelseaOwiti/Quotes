@@ -11,6 +11,9 @@ export class QuoteComponent implements OnInit {
     new Quote('Emily','EDL','When you can’t find the sunshine, be the sunshine', new Date(2019,6,14)),
     
   ]
+  deleteQuote(isComplete, index){
+    this.quotes.splice(index, 1);
+  }
 
   constructor() { }
 
