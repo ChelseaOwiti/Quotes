@@ -13,7 +13,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ##Behaviour Driven Development
 Input |	Ouput
------------- | ------------
+------------|:------------
 User clicks Post Quote |Quote form displays with input fields for Author, Publisher
 User Clicks Delete | The quote is removed from view
 User clicks Upvote |	upvote is incremented value by 1 on each click
