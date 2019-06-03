@@ -7,9 +7,9 @@ import { Quote } from '../quote';
   styleUrls: ['./quote.component.css']
 })
 export class QuoteComponent implements OnInit {
-  quote = [
+  quotes = [
     new Quote('Emily','EDL','When you can’t find the sunshine, be the sunshine'),
-    new Quote('Justine', 'Jordyn Woods', 'I dont want your situation')
+    
   ]
 
   constructor() { }

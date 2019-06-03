@@ -8,10 +8,17 @@
 
 <!-- quote display -->
 <div class="container">
-  <div class="card border-danger mb-3" style="max-width: 24rem;">
-    <div class="card-header">Quote</div>
-    <div class="card-body text-dark">
-      <p class="card-text">Quote will appear here</p>
+  <div *ngFor="let quote of quotes;">
+    <div class="card border-danger mb-3" style="max-width: 24rem;">
+      <div class="card-header">Quote</div>
+      <div class="card-body text-dark">
+        <h2 card-text>
+          "{{quote.quote}}"
+        </h2>
+          
+          <app-quote-details [quote]='quote'></app-quote-details>
+        
+      </div>
     </div>
   </div>
 </div>
