@@ -1,6 +1,23 @@
 # Quotes
 
+#### {Quotes Application, June 3rd 2019}
+#### By **Chelsea Owiti**
+## Description
+{An application that enables users to add quotes,delete quotes.You can also be able to see already existing and there author and can upvote and downvote quotes.}
+
+ 
+## Technologies Used
+* Angular CLI
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
+
+##Behaviour Driven Development
+Input |	Ouput
+------------ | ------------
+User clicks Post Quote |Quote form displays with input fields for Author, Publisher
+User Clicks Delete | The quote is removed from view
+User clicks Upvote |	upvote is incremented value by 1 on each click
+User clicks Downvote |	downvote is decremented value by 1 on each click
 
 ## Development server
 
@@ -25,3 +42,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Known Bugs
+Currently no known bugs
+
+## Support and contact details
+chelseaowiti@gmail.com
+
+### License
+
+*MIT License*
+Copyright (c) {2019} **Chelsea Owiti**

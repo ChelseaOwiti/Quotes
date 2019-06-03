@@ -27,6 +27,20 @@ export class QuoteComponent implements OnInit {
   downvote(i){
     this.quotes[i].downvotes ++;
   }
+  high:number
+  low:number
+  counter:number
+
+  highestUpvote(){
+    this.high=0
+    this.low=0
+
+    for(this.counter=0; this.counter<this.quotes.length; this.counter++){
+      this.low = this.quotes[this.counter].upvotes;
+      if(this.low> this.high){this.high=this.low}
+    }
+    return this.high
+  }
 
   constructor() { }
 
